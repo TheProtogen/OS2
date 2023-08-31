@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -46,7 +45,8 @@ public class KillController {
 	}
 	
 	//Task Destroyer: PID edition
-	//Usa o valor fornecido para executar o comando, e verifica no processo se é realmente um PID
+	//Usa o valor fornecido para executar o comando que mata o processo pelo PID.
+	//Verifica no processo se o valor fornecido é realmente um PID.
 	public void mataPID (String vitima) {
 		String killPID = "";
 		
@@ -69,13 +69,14 @@ public class KillController {
 		
 	}
 	
-	//Task Destroyer: Name edition
+	//Task Destroyer: Name edition.
+	//Usa o valor fornecido para executar o comando que mata o processo pelo nome.
 	public void mataNome(String vitima) {
 		String killNome = "";
 		if(os().contains("Windows")) {
-			killNome = "TASKKILL /IM "; //+ nome do processo
+			killNome = "TASKKILL /IM "; 
 		} else if (os().contains("Linux")) {
-			killNome = "kill -9 "; //+ nome do processo
+			killNome = "kill -9 "; 
 		}
 		
 		try {
